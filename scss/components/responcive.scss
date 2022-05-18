@@ -1,0 +1,35 @@
+@media (max-width: 428px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    opacity: 0.9;
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .blocos {
+      opacity: 0.9;
+      justify-content: space-evenly;
+      .bloco {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
+  @keyframes pri {
+    0% {
+      transform: translateY(-900px);
+    }
+    50% {
+      transform: translateY(40px);
+    }
+    100% {
+      transform: translateY(-900px);
+    }
+  }
+}

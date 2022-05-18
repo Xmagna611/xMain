@@ -1,0 +1,158 @@
+header {
+  nav {
+    .perfil {
+      .border {
+        filter: contrast(150%) saturate(1);
+        overflow: hidden;
+        transform: translateZ(0);
+
+        & > * {
+          filter: brightness(0.5);
+          animation: 5s animation-filter;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          top: -100%;
+          left: -100%;
+          right: -100%;
+          bottom: -100%;
+          background-blend-mode: multiply;
+          background: radial-gradient(8px 8px, #191919, white),
+            radial-gradient(8px 8px, #191919, white),
+            radial-gradient(8px 8px, #191919, white);
+          background-size: 8px 8px;
+          background-position: 0 -3px, -2px 0, 2px 0;
+          mix-blend-mode: screen;
+          pointer-events: none;
+          transform: rotate(11.25deg);
+          transition: 1s ease-in-out transform;
+          z-index: 1;
+          animation: 5s animation-overlay;
+        }
+
+        @keyframes animation-overlay {
+          0% {
+            transform: rotate(45.25deg) scale(4);
+            filter: saturate(0);
+          }
+
+          100% {
+            transform: rotate(11.25deg);
+          }
+        }
+
+        @keyframes animation-filter {
+          0% {
+            filter: brightness(0.5) blur(40px) saturate(0);
+          }
+
+          100% {
+            filter: brightness(0.5) blur(0px) saturate(1);
+          }
+        }
+      }
+
+      .nome,
+      .nick-name,
+      .bio,
+      .loc,
+      .social {
+        animation: animation-title 5s;
+      }
+
+      @keyframes animation-title {
+        0% {
+          opacity: 0;
+        }
+        30% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+main {
+  h1 {
+    animation: animation-title 5s;
+    @keyframes animation-title {
+      0% {
+        opacity: 0;
+      }
+      30% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+  .blocos {
+    animation: animation-container 7s;
+
+    @keyframes animation-container {
+      0% {
+        opacity: 0;
+      }
+      30% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+
+  /*X*/
+  &::after {
+    z-index: 1;
+    position: absolute;
+    content: '';
+    width: 25px;
+    height: 25px;
+    box-shadow: inset 5px 5px 15px $color-bgHero,
+      inset -20px -20px 60px $color-primary;
+    overflow: hidden;
+    margin-top: 5%;
+    margin-left: 75%;
+    opacity: 0;
+    clip-path: polygon(
+      20% 0%,
+      0% 20%,
+      20% 50%,
+      0% 80%,
+      20% 100%,
+      50% 80%,
+      80% 100%,
+      100% 80%,
+      80% 50%,
+      100% 20%,
+      80% 0%,
+      52% 25%
+    );
+    animation: pri 30s ease infinite;
+    animation-delay: 5s;
+  }
+
+  @keyframes pri {
+    0% {
+      opacity: 0.5;
+      transform: translateY(-100px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(500px);
+    }
+    100% {
+      opacity: 0.5;
+      transform: translateY(-100px);
+    }
+  }
+}
